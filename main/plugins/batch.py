@@ -56,7 +56,7 @@ def load_ids_data():
 
 ids_data = load_ids_data()
       
-@gagan.on(events.NewMessage(incoming=True, pattern='/cancel'))
+@gagan.on(events.NewMessage(incoming=True, pattern='/stop'))
 async def cancel_command(event):
     user_id = event.sender_id
     if str(user_id) in ids_data:
@@ -77,9 +77,9 @@ async def cancel_command(event):
             # Clear the chunk tasks list
             del chunk_tasks[str(user_id)]
             
-        await event.respond("Operation canceled.")
+        await event.respond("Operation stopped.")
     else:
-        await event.respond("There is no operation to cancel.")
+        await event.respond("There is no operation to stop.")
 
 
 # Define the log file path
