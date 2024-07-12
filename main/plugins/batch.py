@@ -329,7 +329,7 @@ async def _bulk(event):
             batch_data[str(user_id)] = True
             save_batch_data(batch_data)
 
-            cd = await conv.send_message("**Batch process ongoing...**\n\nProcess completed:)
+            cd = await conv.send_message("**Batch process ongoing...**\n\nProcess completed:")
             co = await peer_batch(userbot, Bot, user_id, cd, _link) 
             try: 
                 if co == -2:
