@@ -214,8 +214,7 @@ async def _bulk(event):
             batch_data[str(user_id)] = True
             save_batch_data(batch_data)
 
-            cd = await conv.send_message("**Batch process ongoing...**\n\nProcess completed: ", 
-                                    buttons=[[Button.url("Join Channel", url="http://t.me/devggn")]])
+            cd = await conv.send_message("**Batch process ongoing...**\n\nProcess completed: ")
             co = await r_batch(userbot, Bot, user_id, cd, _link) 
             try: 
                 if co == -2:
@@ -238,31 +237,30 @@ async def r_batch(userbot, client, sender, countdown, link):
         timer = 30  # Increased default timer value
 
         if i < 25:
-            timer = 20
+            timer = 1
         elif 250 <= i < 100:
-            timer = 25
+            timer = 1
         elif 100 <= i < 1000:
-            timer = 30
+            timer = 1
         elif 1000 <= i < 5000:
-            timer = 35
+            timer = 1
         elif 5000 <= i < 10000:
-            timer = 40
+            timer = 1
         elif 10000 <= i < 20000:
-            timer = 45
+            timer = 1
         elif i >= 20000:
-            timer = 60  # Increased timer value for larger counts
+            timer = 1  # Increased timer value for larger counts
 
         # Adjust the timer for links other than channel links
         if 't.me/c/' not in link:
-            timer = 10 if i < 500 else 30  # Increased timer values for non-channel links
+            timer = 1 if i < 500 else 1  # Increased timer values for non-channel links
 
         try: 
             count_down = f"**Batch process ongoing.**\n\nProcess completed: {i+1}"
             integer = int(link.split("/")[-1]) + int(ids_data[str(sender)][i])
             await get_bulk_msg(userbot, client, sender, link, integer)
             protection = await client.send_message(sender, f"Sleeping for `{timer}` seconds to avoid Floodwaits and Protect account!")
-            await countdown.edit(count_down, 
-                                 buttons=[[Button.url("Join Channel", url="https://t.me/devggn")]])
+            await countdown.edit(count_down)
             await asyncio.sleep(timer)
             await protection.delete()
         except IndexError as ie:
@@ -284,12 +282,12 @@ async def r_batch(userbot, client, sender, countdown, link):
                 except Exception as e:
                     logger.info(e)
                     if countdown.text != count_down:
-                        await countdown.edit(count_down, buttons=[[Button.url("Join Channel", url="http://t.me/devggn")]])
+                        await countdown.edit(count_down)
         except Exception as e:
             #logger.info(e)
             #await client.send_message(sender, f"An error occurred during cloning, batch will continue.\n\n**Error:** {str(e)}")
             if countdown.text != count_down:
-                await countdown.edit(count_down, buttons=[[Button.url("Join Channel", url="https://t.me/devggn")]])
+                await countdown.edit(count_down)
         n = i + 1
         if n == len(ids_data[str(sender)]):
             return -2
@@ -331,8 +329,7 @@ async def _bulk(event):
             batch_data[str(user_id)] = True
             save_batch_data(batch_data)
 
-            cd = await conv.send_message("**Batch process ongoing...**\n\nProcess completed: ", 
-                                    buttons=[[Button.url("Join Channel", url="http://t.me/devggn")]])
+            cd = await conv.send_message("**Batch process ongoing...**\n\nProcess completed:)
             co = await peer_batch(userbot, Bot, user_id, cd, _link) 
             try: 
                 if co == -2:
@@ -355,31 +352,30 @@ async def peer_batch(userbot, client, sender, countdown, link):
         timer = 30  # Increased default timer value
 
         if i < 25:
-            timer = 20
+            timer = 1
         elif 250 <= i < 100:
-            timer = 25
+            timer = 1
         elif 100 <= i < 1000:
-            timer = 30
+            timer = 1
         elif 1000 <= i < 5000:
-            timer = 35
+            timer = 1
         elif 5000 <= i < 10000:
-            timer = 40
+            timer = 1
         elif 10000 <= i < 20000:
-            timer = 45
+            timer = 1
         elif i >= 20000:
-            timer = 60  # Increased timer value for larger counts
+            timer = 1  # Increased timer value for larger counts
 
         # Adjust the timer for links other than channel links
         if 't.me/c/' not in link:
-            timer = 10 if i < 500 else 30  # Increased timer values for non-channel links
+            timer = 1 if i < 500 else 1  # Increased timer values for non-channel links
 
         try: 
             count_down = f"**Batch process ongoing.**\n\nProcess completed: {i+1}"
             integer = int(link.split("/")[-1]) + int(ids_data[str(sender)][i])
             await get_bulk_msg(userbot, client, sender, link, integer)
             protection = await client.send_message(sender, f"Sleeping for `{timer}` seconds to avoid Floodwaits and Protect account!")
-            await countdown.edit(count_down, 
-                                 buttons=[[Button.url("Join Channel", url="https://t.me/devggn")]])
+            await countdown.edit(count_down)
             await asyncio.sleep(timer)
             await protection.delete()
         except IndexError as ie:
@@ -401,12 +397,12 @@ async def peer_batch(userbot, client, sender, countdown, link):
                 except Exception as e:
                     logger.info(e)
                     if countdown.text != count_down:
-                        await countdown.edit(count_down, buttons=[[Button.url("Join Channel", url="http://t.me/devggn")]])
+                        await countdown.edit(count_down)
         except Exception as e:
             #logger.info(e)
             #await client.send_message(sender, f"An error occurred during cloning, batch will continue.\n\n**Error:** {str(e)}")
             if countdown.text != count_down:
-                await countdown.edit(count_down, buttons=[[Button.url("Join Channel", url="https://t.me/devggn")]])
+                await countdown.edit(count_down)
         n = i + 1
         if n == len(ids_data[str(sender)]):
             return -2
