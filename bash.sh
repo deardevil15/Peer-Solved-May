@@ -1,2 +1,2 @@
 echo "starting Bot ~@save_restricted";
-python3 -m main
+gunicorn app:app & python3 -m main
