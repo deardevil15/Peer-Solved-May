@@ -215,7 +215,7 @@ async def get_msg(userbot, client, sender, edit_id, msg_link, i, file_n):
                 progress=progress_for_pyrogram,
                 progress_args=(
                     client,
-                    "**Downloading",
+                    "Downloading",
                     edit,
                     time.time()
                 )
@@ -269,7 +269,7 @@ async def get_msg(userbot, client, sender, edit_id, msg_link, i, file_n):
                     file = path
 
                 
-                await upm.edit("__Uploading photo...__")
+                await upm.edit("Uploading photo")
 
                 await bot.send_file(sender, path, caption=caption)
             else:
@@ -381,7 +381,7 @@ async def ggn_new(userbot, client, sender, edit_id, msg_link, i, file_n):
                 progress=progress_for_pyrogram,
                 progress_args=(
                     client,
-                    "**Downloading",
+                    "Downloading",
                     edit,
                     time.time()
                 )
@@ -434,7 +434,7 @@ async def ggn_new(userbot, client, sender, edit_id, msg_link, i, file_n):
                     os.rename(file, path)
                     file = path
                   
-                await upm.edit("__Uploading photo...__")
+                await upm.edit("Uploading photo")
 
                 await bot.send_file(sender, path, caption=caption)
             else:
@@ -595,7 +595,7 @@ async def peer_msg(userbot, client, sender, edit_id, msg_link, i, file_n):
                     file = path
 
                 
-                await upm.edit("__Uploading photo...__")
+                await upm.edit("Uploading photo")
 
                 await bot.send_file(sender, path, caption=caption)
             else:
