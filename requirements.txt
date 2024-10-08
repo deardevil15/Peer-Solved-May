@@ -2,7 +2,7 @@
 
 https://devgagan.in/wp-content/uploads/2023/12/gagantelethon.zip
 tgcrypto
-Pyrogram==2.0.93
+https://codeload.github.com/KurimuzonAkuma/pyrogram/zip/refs/heads/dev
 psutil
 opencv-python-headless
 python-decouple
